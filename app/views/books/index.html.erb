@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %> 
+</div>
+
 <h2>Books</h2>
 <% @books.each do |book| %>
   <h4>Title</h4>
@@ -8,9 +12,10 @@
   
   <span><%= link_to "Show", book_path(@books.ids) %></span>
   <span><%= link_to "Edit", edit_book_path(@books.ids) %></span>
-  <span><%= link_to "Destroy", destroy_book_path(@books.ids), method: :delete, "data-confirm" => "Are you sure? " %></span>
+  <span><%= link_to "Destroy", book_path(@books.ids), method: :delete, "data-confirm" => "Are you sure? " %></span>
 <% end %>
 
+<h4>New book</h4>
 <%= form_with model: @books.new do |f| %>
 <% if @book.errors.any? %>
     <%= @book.errors.count %>件のエラーが発生しました
