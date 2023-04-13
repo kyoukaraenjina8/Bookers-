@@ -10,14 +10,16 @@
     
   <% end %>
   <%= form_with model: @book do |f| %>
-  <h4>Title</h4>
+  <h3>Title</h3>
   <%= f.text_field:title %>
 
-  <h4>Body</h4>
+  <h3>Body</h3>
   <%= f.text_area:body %>
 
+  <div class = "button">
   <%= f.submit 'Update Book' %>
   <% end %>
+  </div>
 
-<span><%= link_to "Show" ,book_path(@book.id) %></span>
+<span><%= link_to "Show" ,books_path(@book.id) %></span>
 <span><%= link_to "Back" ,"/books" %></span>

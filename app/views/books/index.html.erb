@@ -1,34 +1,52 @@
+<div class ="box">
 <div>
-  <%= flash[:notice] %> 
+    <%= flash[:notice] %>
 </div>
-
-<h2>Books</h2>
-<% @books.each do |book| %>
-  <h4>Title</h4>
-  <span><%= book.title %></span>
-  
-  <h4>Body</h4>
-  <span><%= book.body %></span>
-  
-  <span><%= link_to "Show", book_path(@books.ids) %></span>
-  <span><%= link_to "Edit", edit_book_path(@books.ids) %></span>
-  <span><%= link_to "Destroy", book_path(@books.ids), method: :delete, "data-confirm" => "Are you sure? " %></span>
-<% end %>
-
-<h4>New book</h4>
-<%= form_with model: @books.new do |f| %>
-<% if @book.errors.any? %>
-    <%= @book.errors.count %>件のエラーが発生しました
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="blogtitle">
+    <h1>Books<h1>
+  </div>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+            <td><%= link_to "Show", book_path(@books.ids) %></td>
+            <td><%= link_to "Edit", edit_book_path(@books.ids) %></td>
+            <td><%= link_to "Destroy", book_path(@books.ids), method: :delete, "data-confirm" => "Are you sure? " %></td>
+          </tr>
+       </tr>
+  </tbody>
       <% end %>
-    </ul>
-<% end %>
-    <h4>Title</h4>
+</table>
+
+<div class = "new-box">
+  <h2>New book</h2>
+</div>
+<div class = "entrybar">
+  <%= form_with model: @books.new do |f| %>
+    <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <h3>Title</h3>
   <%= f.text_field :title %>
-    <h4>Body</h4>
+    <h3>Body</h3>
   <%= f.text_area :body %>
-  
+</div> 
+<div class = "button">
   <%= f.submit 'Create Book' %>
-<% end %>
+  <% end %>
+</div>
+</div>
