@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  
+
   def index
     @books = Book.all
     @book = Book.new
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    
+
   end
 
   def edit

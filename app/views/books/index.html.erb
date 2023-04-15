@@ -40,11 +40,15 @@
         <% end %>
       </ul>
     <% end %>
-    <h3>Title</h3>
-  <%= f.text_field :title %>
-    <h3>Body</h3>
-  <%= f.text_area :body %>
-</div> 
+    <span>Title</span>
+      <div class = title-box>
+        <%= f.text_field :title %>
+      </div>
+      <span>Body</span>
+      <div class = body-box>
+        <%= f.text_area :body %>
+      </div>
+</div>
 <div class = "button">
   <%= f.submit 'Create Book' %>
   <% end %>
